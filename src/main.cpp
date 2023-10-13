@@ -25,10 +25,10 @@ ESP8266WebServer server(8080);
 Display *myDisplay = new Display();
 
 //Wifi
-//#define STASSID "FRITZ!Box 7560 TZ"
-//#define STAPSK  "95172809322535102456"
-#define STASSID "HWM"
-#define STAPSK  "Helliwood$media"
+#define STASSID "FRITZ!Box 7560 TZ"
+#define STAPSK  "95172809322535102456"
+//#define STASSID "HWM"
+//#define STAPSK  "Helliwood$media"
 const char* ssid = STASSID;
 const char* password = STAPSK;
 
@@ -415,7 +415,7 @@ void getTemperatures(void) {
 void loop() {
   ArduinoOTA.handle();
   fauxmo.handle();
-  //getTemperatures();
+  getTemperatures();
   //Telnet();
   //digitalWrite(12, HIGH);
   //digitalWrite(13, LOW);
