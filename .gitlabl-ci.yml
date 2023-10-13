@@ -21,8 +21,8 @@ build:
 
 create_upload:
   stage: create_upload
-    only:
-      - production
-    script: 
-      - pio run -e nodemcuv2 -t upload
+  only:
+    - production
+  script: 
+    - pio run -e nodemcuv2 -t upload
 
