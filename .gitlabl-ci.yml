@@ -1,0 +1,28 @@
+stages:
+  - build
+  - create_upload
+
+before_script:
+  - chmod -R 777 /home/gitlab-runner/builds
+  - docker info
+  - docker-compose version
+
+after_script:
+  - docker container prune -f
+  - docker image prune -f
+
+build:
+  stage: build
+  only:
+    - production
+  script:
+    - docker-compose -f docker-compose.yml up -d --build
+
+
+create_upload:
+  stage: create_upload
+    only:
+      - production
+    script: 
+      - pio run -e nodemcuv2 -t upload
+
